@@ -1,0 +1,24 @@
+{
+  "name": "questify-auth",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend e API REST de autentica\u00e7\u00e3o do Questify",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "vite frontend",
+    "build": "vite build frontend",
+    "vercel-build": "npm run build && node --check api/health.js && node --check api/auth/login.js && node --check api/auth/register.js && node --check api/auth/refresh.js && node --check api/auth/logout.js && node --check api/_lib/auth-handler.js && node --check api/_lib/security.js && node --check api/_lib/recaptcha.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "postgres": "^3.4.7",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}
